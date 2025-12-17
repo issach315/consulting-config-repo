@@ -13,7 +13,7 @@ spring:
           lower-case-service-id: true
 
       routes:
-        # ================= AUTH SERVICE (PUBLIC) =================
+        # ================= AUTH SERVICE =================
         - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
@@ -63,14 +63,14 @@ eureka:
 
 # ================= JWT CONFIG =================
 jwt:
-  secret: dev_gateway_jwt_secret   # simple dev secret
+  secret: a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2
 
 # ================= ACTUATOR =================
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,gateway
+        include: health,info,metrics,gateway
   endpoint:
     gateway:
       enabled: true
@@ -78,7 +78,5 @@ management:
 # ================= LOGGING =================
 logging:
   level:
-    root: DEBUG
-    org.springframework.cloud.gateway: DEBUG
+    org.springframework.cloud.gateway: INFO
     com.consulting: DEBUG
-
